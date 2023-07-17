@@ -1,0 +1,73 @@
+<!-- Instructions: Lakeside Cottages accepts guests during the summer and early fall. Design a flowchart of psuedocode for a program that accepts a guest's last name, month, and day of the guest's stay will start and the number of nights for the stay. If the month is not 5 through 9 inclusive, then display a message that indicates the cottages are not available. Otherwise, if the number of nights is more than 14, display a message that indicates reservations are not accepted for more than 14 nights. Otherwise, display the total fee for the guest, which is $600 total for any number of days through 7, and then $75 per day for any additional days through 14.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JQUERY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>Lakeside Cottages</title>
+</head>
+<body>
+  
+  <div class="container pt-5">
+    <p class="fs-4 mb-4">Lakeside Cottages</p>
+    <div class="row">
+      <div class="col-12">
+        <label for="lastName" class="form-label">Last name</label>
+        <input class="form-control mt-2" type="text" id="lastName"  aria-label="default input example">
+        <label for="chosenMonth" class="form-label mt-2">Select month</label>
+        <!-- <input class="form-control mt-2" type="text" id="price" aria-label="default input example"> -->
+        <select class="form-select mt-1" id="chosenMonth" aria-label="Default select example">
+          <option selected disabled>..</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select><br>
+        <label for="startday" class="form-label">Choose start day</label>
+        <input class="form-control mt-2" type="date" id="startday"  aria-label="default input example">
+
+        <label for="numOfNights" class="form-label">Number of nights</label>
+        <input class="form-control mt-2" type="text" id="numOfNights"  aria-label="default input example">
+
+        <button type="button" id="reserve" class="btn btn-primary mt-2">Reserve</button>
+
+        <div class="result mt-4">
+          <div id="reservationResult">
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="./lakesidecottages.js"></script>
+</body>
+</html>
+
+
+
+<!-- A. Modify the cottages rental program to display guest's data only if the stay starts in month 9 and lasts more than 10 days. -->
+
+<!-- B. Modify the cottage rental program to display the guest's data only if the total bill is more than $1000. -->
+
+<!-- C. Modify the cottage rental program to prompt the user for a month and day after the guest's rental data has been entered. Display the guest's data only if the specified date falls within the guest's stay. -->
