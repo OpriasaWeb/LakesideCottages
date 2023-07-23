@@ -40,10 +40,7 @@
 
 // })
 
-
-
-
-
+// -------------------------------------------------------------------------------------------------------------------------------------- //
 
 // A. Modify the cottages rental program to display guest's data only if the stay starts in month 9 and lasts more than 10 days.
 var monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -122,17 +119,28 @@ $('#reserve').click(function(e){
         totalAmount = totalAmount + 75;
       }
       totalAmount = totalAmount + 600;
+
+      // -------------------------------------------------------------------------------------------------------------------------------------- //
+
+      // B. Modify the cottage rental program to display the guest's data only if the total bill is more than $1000.
+      if(totalAmount > 1000){
+        $('#reservationResult').append(`<p>Hello, ${guestLastName} family!</p>`);
+        $('#reservationResult').append(`<p>Details: Month of ${chosenMonth} and stays for up to ${numOfDays + 1} days.</p>`);
+        $('#reservationResult').append(`<p>Total fee: ${totalAmount}</p>`);
+        $('#reservationResult').append(`<p>Thank you for trusting Lakeside Cottages!</p>`);
+      }
+
     }
 
-    $('#reservationResult').append(`<p>Hello, ${guestLastName} family!</p>`);
-    $('#reservationResult').append(`<p>Details: Month of ${chosenMonth} and stays for up to ${numOfDays + 1} days.</p>`);
-    $('#reservationResult').append(`<p>Total fee: ${totalAmount}</p>`);
-    $('#reservationResult').append(`<p>Thank you for trusting Lakeside Cottages!</p>`);
+    
 
   }
 
 })
 
-// B. Modify the cottage rental program to display the guest's data only if the total bill is more than $1000.
+
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------- //
 
 // C. Modify the cottage rental program to prompt the user for a month and day after the guest's rental data has been entered. Display the guest's data only if the specified date falls within the guest's stay.
