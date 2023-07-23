@@ -134,10 +134,3 @@ $('#reserve').click(function(e){
   }
 
 })
-
-
-
-
-// -------------------------------------------------------------------------------------------------------------------------------------- //
-
-// C. Modify the cottage rental program to prompt the user for a month and day after the guest's rental data has been entered. Display the guest's data only if the specified date falls within the guest's stay.
