@@ -47,7 +47,7 @@
 
 // A. Modify the cottages rental program to display guest's data only if the stay starts in month 9 and lasts more than 10 days.
 var monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-var monthQuan = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var monthQuan = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 $('#reserve').click(function(e){
   e.preventDefault();
@@ -55,60 +55,81 @@ $('#reserve').click(function(e){
   // console.log("Cottage");
 
   var chosenMonth = $('#chosenMonth').val();
+  var choseMonthValue = chosenMonth - 1;
 
-  console.log(chosenMonth);
-  console.log(monthQuan[6] - 1);
+  console.log(choseMonthValue);
+  // // console.log(monthQuan[6] - 1);
 
   var numOfNights = $('#numOfNights').val();
   var guestLastName = $('#lastName').val();
 
   var numOfDays = parseInt(numOfNights);
   
-
-  console.log(monthArr.length);
-  var foundMonth = "N";
-  var subArray = 0;
   var nameOfMonth = "";
 
-  while(subArray < monthQuan.length && foundMonth == "N"){
-    if(chosenMonth = monthQuan[subArray] - 1){
-      foundMonth = "Y";
-      nameOfMonth = monthArr[subArray];
-      console.log(nameOfMonth);
+  switch(choseMonthValue){
+    case 0:
+      nameOfMonth = "January";
+      break;
+    case 1:
+      nameOfMonth = "February";
+      break;
+    case 2:
+      nameOfMonth = "March";
+      break;
+    case 3:
+      nameOfMonth = "April";
+      break;
+    case 4:
+      nameOfMonth = "May";
+      break;
+    case 5:
+      nameOfMonth = "June";
+      break;
+    case 6:
+      nameOfMonth = "July";
+      break; 
+    case 7:
+      nameOfMonth = "August";
+      break;
+    case 8:
+      nameOfMonth = "September";
+      break;
+    case 9:
+      nameOfMonth = "October";
+      break;
+    case 10:
+      nameOfMonth = "November";
+      break;
+    case 11:
+      nameOfMonth = "December";
+      break;
+  }
+
+  console.log(nameOfMonth);
+
+  if(chosenMonth == "" || numOfNights == ""){
+    $('#reservationResult').append('<p>Month and number of nights should not be empty.</p>');
+  } else if(choseMonthValue == 8 && numOfNights >= 10){
+    var totalAmount = 0;
+    // If the nights is less than or equal to 7, fix 600 pesos payment
+    if(numOfNights <= 7){
+      totalAmount = 600;
     }
-    subArray++;
+    // Plus 75 pesos per added day up to 14
+    else if(numOfNights > 7 && numOfNights <= 14){
+      for(let i = 7; i < numOfNights; i++){
+        totalAmount = totalAmount + 75;
+      }
+      totalAmount = totalAmount + 600;
+    }
+
+    $('#reservationResult').append(`<p>Hello, ${guestLastName} family!</p>`);
+    $('#reservationResult').append(`<p>Details: Month of ${chosenMonth} and stays for up to ${numOfDays + 1} days.</p>`);
+    $('#reservationResult').append(`<p>Total fee: ${totalAmount}</p>`);
+    $('#reservationResult').append(`<p>Thank you for trusting Lakeside Cottages!</p>`);
+
   }
-
-  if(foundMonth = "Y"){
-    console.log(nameOfMonth);
-  }
-
-  // console.log(numOfDays + 1);
-
-  // if(chosenMonth == "" || numOfNights == ""){
-  //   $('#reservationResult').append('<p>Month and number of nights should not be empty.</p>');
-  // } else if(chosenMonth == 9 && numOfNights >= 10){
-  //   var totalAmount = 0;
-  //   // console.log(numOfNights);
-
-  //   // If the nights is less than or equal to 7, fix 600 pesos payment
-  //   if(numOfNights <= 7){
-  //     totalAmount = 600;
-  //   }
-    
-  //   // Plus 75 pesos per added day up to 14
-  //   else if(numOfNights > 7 && numOfNights <= 14){
-  //     for(let i = 7; i < numOfNights; i++){
-  //       totalAmount = totalAmount + 75;
-  //     }
-  //     totalAmount = totalAmount + 600;
-  //   }
-
-  //   $('#reservationResult').append(`<p>Hello, ${guestLastName} family!</p>`);
-  //   $('#reservationResult').append(`<p>Details: Month of ${chosenMonth} and stays for up to ${numOfDays + 1} days.</p>`);
-  //   $('#reservationResult').append(`<p>Total fee: ${totalAmount}</p>`);
-  //   $('#reservationResult').append(`<p>Thank you for trusting Lakeside Cottages!</p>`);
-  // }
 
 })
 
