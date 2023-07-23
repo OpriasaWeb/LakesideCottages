@@ -43,9 +43,6 @@
 // -------------------------------------------------------------------------------------------------------------------------------------- //
 
 // A. Modify the cottages rental program to display guest's data only if the stay starts in month 9 and lasts more than 10 days.
-var monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-var monthQuan = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
 $('#reserve').click(function(e){
   e.preventDefault();
 
